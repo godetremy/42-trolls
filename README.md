@@ -10,7 +10,7 @@ We have sort them into 4 categories.
 - **🔴 Ultra Annoying :** The final (countdown ?)... Ultra annoying section, like session script or reset.
 
 ## 🟢 Slightly Annoying
-A simple prank that can be easily undone.
+Simple prank which can easily be undone (like modify the .zshrc)
 
 ### Lock your friend's screen  
 Simply lock the screen of your current mate.
@@ -64,10 +64,37 @@ Or remove the line at end of the `.zshrc` file.
 </details>
 
 ## 🟡 Moderately Annoying  
-A prank that makes your friend doubt what's happening.  
+Some command that can be removed, but you have to know the tips. 😘
+
+### 📺 AdSh - Ads in your shell
+Worries about the free and no distrubtive shell ? Don't worries, you can now add ads when you type command on your terminal.
+
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/install.sh | bash
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/uninstall.sh | bash
+```
+Or remove the line at end of the `.zshrc` file, then delete the folder `.adsh` in your home.
+</details>
+
+<details>
+  <summary>🪄 Want to contribute ?</summary>
+
+You can add your own add in `adsh/video`, but don't forget :
+- **2mb max video size :** This will impact the download speed. Much faster = much easier to prank. 👽
+- **No 4K video :** Too big resolution will create lags in `mpv`, plus this is not important, terminal will not load a video in 1920x1080.
+
+Now your video is added, don't forget to add it in the video variable, in `adsh/install.sh` and `adsh/adsh.sh`
+</details>
 
 ## 🟠 Very Annoying  
-Really annoying—affects things like storage, sound, or display.
+Take some hardware capabilities... Like sound, graphics, and why not some storage ?
 
 ### 🕺 Rickrolled
 Set the volume at 75%, and play _Never Gonna Give You Up_ by _Rick Astley_ in VLC fullscreen.
@@ -76,7 +103,7 @@ pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@
 ```
 
 ## 🔴 Ultra Annoying  
-The most extreme prank. Deletes essential files, resets the session, or require restart. Only use if your friend is actually your **enemy**. 😈
+Ultra annoying section, like session script or reset. Only use if your friend is actually your **enemy**. 😈
 
 ### 💾 420T
 Because 5Go is too small, live the expreience of the session of 420T.
