@@ -1,0 +1,14 @@
+{
+    "name": "nolock",
+    "description": "Mario said : non",
+    "original-author": "nolock@42.fr",
+    "url": "https://42.fr/",
+    "uuid": "nolock@42network.org",
+    "shell-version": [
+	"40",
+	"41",
+	"42"
+    ],
+    "gettext-domain": "nolock",
+    "version": 1
+}
