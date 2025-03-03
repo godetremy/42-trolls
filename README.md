@@ -102,6 +102,21 @@ Set the volume to 75%, and play _Never Gonna Give You Up_ by _Rick Astley_ in VL
 pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 75% && cvlc https://dn720407.ca.archive.org/0/items/rick-roll/Rick%20Roll.ia.mp4 -f --no-video-title-show --mouse-hide-timeout 0
 ```
 
+### 🔑 NoLock
+Replace the lock button. Now when you lock, Mario say "Non".
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/install.sh | bash
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/uninstall.sh | bash
+```
+</details>
+
 ## 🔴 Ultra Annoying  
 The final (countdown?) — ultra annoying pranks, like session scripts or resets. Only use these if your friend is really your enemy. 😈
 
