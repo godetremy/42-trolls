@@ -7,7 +7,7 @@ echo '▐▌ ▐▌▝▚▄▟▌▗▄▄▞▘▐▌ ▐▌'
 echo
 echo
 
-echo '[1/5] Prepare for downloads...'
+echo '[1/6] Prepare for downloads...'
 
 VIDEOS=(
     "2024_carrefour.mp4"
@@ -19,19 +19,22 @@ VIDEOS=(
 
 mkdir -p ~/.adsh/video
 
-echo '[2/5] Downloading ads...'
+echo '[2/6] Downloading ads...'
 for VIDEO in "${VIDEOS[@]}"; do
     curl -s -L -o "$HOME/.adsh/video/$VIDEO" "https://raw.githubusercontent.com/godetremy/42-trolls/main/adsh/video/$VIDEO" &
 done
 
 wait
 
-echo '[3/5] Downloading script...'
+echo '[3/6] Downloading script...'
 curl -s -L -o "$HOME/.adsh/adsh.sh" "https://raw.githubusercontent.com/godetremy/42-trolls/main/adsh/adsh.sh"
-echo '[4/5] Checking permission...'
+echo '[4/6] Checking permission...'
 chmod +x "$HOME/.adsh/adsh.sh"
 
-echo '[5/5] Adding to zshrc...'
+echo '[5/6] Installing mpv...'
+yes | flatpak install flathub io.mpv.Mpv
+
+echo '[5/6] Adding to zshrc...'
 
 echo 'preexec () { bash ~/.adsh/adsh.sh }' >> ~/.zshrc
 
