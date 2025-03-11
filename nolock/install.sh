@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "[1/7] Creating extension directory..."
+mkdir ~/.local/share/gnome-shell/extensions
 mkdir ~/.local/share/gnome-shell/extensions/nolock@42network.org
 
 echo "[2/7] Downloading metadata..."
