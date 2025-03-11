@@ -182,6 +182,20 @@ curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/noloc
 ```
 </details>
 
+### 🎲 Random Mouse
+The default configuration of mouse is so boring... Why not randomize all the button of your mouse every 2s ?
+```bash
+while true; do
+	xmodmap -e "$(echo "pointer = $(shuf -e 1 2 3 | paste -sd " ")")"
+	sleep 2
+done & disown
+```
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+The simplest method is to disconnect, but we wish you good luck finding the right button... 😘
+</details>
+
 ## 🔴 Ultra Annoying  
 The final (countdown?) — ultra annoying pranks, like session scripts or resets. Only use these if your friend is really your enemy. 😈
 
