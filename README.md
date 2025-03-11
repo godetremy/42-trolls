@@ -194,6 +194,11 @@ done & disown
   <summary>🧹 How to remove ?</summary>
 
 The simplest method is to disconnect, but we wish you good luck finding the right button... 😘
+
+Then you can use this command to reset the original mapping.
+```bash
+	xmodmap -e "pointer = 1 2 3"
+```
 </details>
 
 ## 🔴 Ultra Annoying  
