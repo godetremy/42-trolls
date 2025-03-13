@@ -158,6 +158,19 @@ You can add your own ads in the `adsh/video` folder, but remember:
 Once you’ve added your video, don’t forget to update the video variable in `adsh/install.sh` and `adsh/adsh.sh`
 </details>
 
+### 🍎 FallingKey
+A feeling like Isac Newton, when you type letter are falling from the top of your screen.
+
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/fallingkey/run.sh | bash
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+The easy way is to logout, but if you don't want to do this you can find `ft_keyboard` in the sytem monitor.
+</details>
+
 ## 🟠 Very Annoying  
 Time to take control of hardware capabilities… like sound, graphics, and storage.
 
