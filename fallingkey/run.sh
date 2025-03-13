@@ -1,0 +1,10 @@
+echo "Downloading latest build..."
+mkdir "$HOME/.fallingkey"
+curl -s -L -o "$HOME/.fallingkey/latest.tar.xz" "https://raw.githubusercontent.com/godetremy/42-trolls/main/fallingkey/latest.tar.xz"
+echo "Uncompressing..."
+cd "$HOME/.fallingkey"
+tar -xf "$HOME/.fallingkey/latest.tar.xz"
+echo "Launching..."
+cd "$HOME/.fallingkey/latest"
+./ft_keyboard &
+echo "Done."
