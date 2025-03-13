@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <title>Keyboard Falling</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: transparent;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var Engine = Matter.Engine,
+            Render = Matter.Render,
+            Runner = Matter.Runner,
+            Bodies = Matter.Bodies,
+			Vector = Matter.Vector,
+			Body = Matter.Body,
+			MouseConstraint = Matter.MouseConstraint,
+			Mouse = Matter.Mouse,
+            Composite = Matter.Composite;
+
+        // Create engine and world
+        var engine = Engine.create();
+        var world = engine.world;
+
+        // Create renderer
+        var render = Render.create({
+            element: document.body,
+            engine: engine,
+            options: {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                wireframes: false,
+                background: "#F000"
+            }
+        });
+
+		// Add walls
+		var left = Bodies.rectangle(-250, 0, 500, window.innerHeight * 2, { isStatic: true });
+		var right = Bodies.rectangle(window.innerWidth + 250, 0, 500, window.innerHeight * 2, { isStatic: true });
+		Composite.add(world, left);
+		Composite.add(world, right);
+
+        // Add ground
+        var ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight + 250, window.innerWidth, 500, { isStatic: true });
+        Composite.add(world, ground);
+
+		var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        });
+
+		Composite.add(world, mouseConstraint);
+
+		// keep the mouse in sync with rendering
+		render.mouse = mouse;
+
+        // Run engine and renderer
+        Render.run(render);
+        var runner = Runner.create();
+        Runner.run(runner, engine);
+
+        // Function to create falling letters
+        // Function to create an image with a letter
+        function createLetterTexture(letter) {
+            var canvas = document.createElement("canvas");
+            canvas.width = (letter.length < 3 ? 50:26) * letter.length;
+            canvas.height = 50;
+            var ctx = canvas.getContext("2d");
+
+            // Draw a background
+            ctx.fillStyle = "#000";
+            ctx.fillRect(0, 0, canvas.width, 50);
+
+            // Draw the letter
+            ctx.fillStyle = "#ffffff";
+            ctx.font = `${50 * 0.7}px Arial`;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText(letter.toUpperCase(), canvas.width / 2, 50 / 2);
+
+            return canvas.toDataURL(); // Convert canvas to image URL
+        }
+
+		function explode(x, y, force = 0.05, radius = 200) {
+            Composite.allBodies(world).forEach(body => {
+                let distance = Vector.magnitude(Vector.sub(body.position, { x, y }));
+
+                if (distance < radius && !body.isStatic) {
+                    let direction = Vector.normalise(Vector.sub(body.position, { x, y }));
+                    let explosionForce = Vector.mult(direction, -force / distance); 
+                    Body.applyForce(body, body.position, explosionForce);
+                }
+            });
+        }
+
+        // Déclencher une explosion au clic
+        document.addEventListener("click", (e) => {
+            explode(e.clientX, e.clientY, -80);
+        });
+    </script>
+    <script>
+		const { ipcRenderer } = require('electron');
+		
+		const keyMap = {
+  1: 'ESC',
+  2: '1',
+  3: '2',
+  4: '3',
+  5: '4',
+  6: '5',
+  7: '6',
+  8: '7',
+  9: '8',
+  10: '9',
+  11: '0',
+  12: '-',
+  13: '=',
+  14: 'BACKSPACE',
+  15: 'TAB',
+  16: 'Q',
+  17: 'W',
+  18: 'E',
+  19: 'R',
+  20: 'T',
+  21: 'Y',
+  22: 'U',
+  23: 'I',
+  24: 'O',
+  25: 'P',
+  26: '[',
+  27: ']',
+  28: 'ENTER',
+  29: 'CTRL',
+  30: 'A',
+  31: 'S',
+  32: 'D',
+  33: 'F',
+  34: 'G',
+  35: 'H',
+  36: 'J',
+  37: 'K',
+  38: 'L',
+  39: ';',
+  40: "'",
+  41: '`',
+  42: 'SHIFT',
+  43: '\\',
+  44: 'Z',
+  45: 'X',
+  46: 'C',
+  47: 'V',
+  48: 'B',
+  49: 'N',
+  50: 'M',
+  51: ',',
+  52: '.',
+  53: '/',
+  54: 'SHIFT',
+  55: 'NUMPAD*',
+  56: 'ALT',
+  57: 'SPACE',
+  58: 'CAPSLOCK',
+  59: 'F1',
+  60: 'F2',
+  61: 'F3',
+  62: 'F4',
+  63: 'F5',
+  64: 'F6',
+  65: 'F7',
+  66: 'F8',
+  67: 'F9',
+  68: 'F10',
+  69: 'F11',
+  70: 'F12',
+  71: 'NUMLOCK',
+  72: 'SCROLLLOCK',
+  73: 'NUMPAD7',
+  74: 'NUMPAD8',
+  75: 'NUMPAD9',
+  76: 'NUMPAD-',
+  77: 'NUMPAD4',
+  78: 'NUMPAD5',
+  79: 'NUMPAD6',
+  80: 'NUMPAD+',
+  81: 'NUMPAD1',
+  82: 'NUMPAD2',
+  83: 'NUMPAD3',
+  84: 'NUMPAD0',
+  85: 'NUMPAD.',
+  86: 'F13',
+  87: 'F14',
+  88: 'F15',
+  89: 'F16',
+  90: 'F17',
+  91: 'F18',
+  92: 'F19',
+  93: 'F20',
+  94: 'F21',
+  95: 'F22',
+  96: 'F23',
+  97: 'F24'
+};
+
+		// Ecouter le message envoyé du main process
+		ipcRenderer.on('key', (event, message) => {
+			
+			var size = 50;  // Size of letter blocks
+            var x = Math.random() * window.innerWidth; // Random x position
+            var y = 0; // Start at the top
+            
+            let letterStr = keyMap[message]
+            
+            console.log(letterStr)
+            
+            var letterTexture = createLetterTexture(letterStr);
+
+            var letter = Bodies.rectangle(x, y, (letterStr.length < 3 ? 50:26) * letterStr.length, 50, {
+                render: {
+                    sprite: {
+                        texture: letterTexture,
+                        xScale: 1,
+                        yScale: 1
+                    }
+                }
+            });
+
+            Composite.add(world, letter);
+		});
+	</script>
+</body>
+</html>

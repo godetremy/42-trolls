@@ -1,0 +1,36 @@
+{
+  "name": "falling-keyboard",
+  "version": "1.0.0",
+  "description": "Oh wow, my key as physics !",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . ft_keyboard --platform=linux --arch=x64",
+  },
+  "author": "rgodet",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^12.2.3"
+  },
+  "dependencies": {
+    "electron-packager": "^17.1.2",
+    "iohook": "^0.9.3",
+    "nan": "^2.22.2",
+    "node-gyp": "^11.1.0"
+  },
+  "iohook": {
+    "targets": [
+      "node-72",
+      "electron-85"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  }
+}
