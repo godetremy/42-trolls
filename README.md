@@ -63,6 +63,71 @@ sed -i '' "s/man() { echo \"No manual entry for $1\"; }//g" ~/.zshrc
 Or remove the line at end of the `.zshrc` file.
 </details>
 
+### 🥸 Hieroglyph Title Bar
+Replace the font in the title bar of some apps with a symbol font, but with a really big size...
+```bash
+gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'wasy10 256'
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font true
+```
+</details>
+
+### 🖱️ Cursor Finder
+This command make the cursor at size of 256px.
+
+>[!NOTE]
+> Some cursor are not avaible at a size of 256px. In this case, Gnome will take the larger.
+```bash
+gsettings set org.gnome.desktop.interface cursor-size 256
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+gsettings set org.gnome.desktop.interface cursor-size 24
+```
+</details>
+
+### ❌ XXX ?
+Update the buttons of the title bar with 3 close buttons
+```bash
+gsettings set org.gnome.desktop.wm.preferences button-layout ':close,close,close'
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+```
+</details>
+
+### 🙅 Useless window
+Remove all the buttons of the title bar
+```bash
+gsettings set org.gnome.desktop.wm.preferences button-layout ':'
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+```
+</details>
+
+
 ## 🟡 Moderately Annoying  
 A bit more annoying, but still easy to remove.
 
@@ -114,6 +179,25 @@ curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/noloc
 Use this command :
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/uninstall.sh | bash
+```
+</details>
+
+### 🎲 Random Mouse
+The default configuration of mouse is so boring... Why not randomize all the button of your mouse every 2s ?
+```bash
+while true; do
+	xmodmap -e "$(echo "pointer = $(shuf -e 1 2 3 | paste -sd " ")")"
+	sleep 2
+done & disown
+```
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+The simplest method is to disconnect, but we wish you good luck finding the right button... 😘
+
+Then you can use this command to reset the original mapping.
+```bash
+	xmodmap -e "pointer = 1 2 3"
 ```
 </details>
 
