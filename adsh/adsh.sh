@@ -12,20 +12,21 @@ VIDEO=(
 # Get random video
 AD="${VIDEO[RANDOM % ${#VIDEO[@]}]}"
 
-# Cleanup if ctrl+c
-cleanup() {
-    kill -SIGTERM "$MPV_PID" 2>/dev/null
-    wait "$MPV_PID" 2>/dev/null
-    exit 0
-}
+# Complete path
+VIDEO_PATH="$HOME/.adsh/video/$AD"
 
-trap cleanup SIGINT SIGTERM
-
-# Play the ad every other execution (based on RANDOM % 2)
-if (( RANDOM % 2 == 0 )); then
-
-    flatpak run io.mpv.Mpv --vo=tct --vo-tct-256 --term-status-msg="\n\n\n\nVotre commande sera exécutée bientôt" --msg-level=cplayer=no --osc=no --keep-open=no --display-tags=no ~/.adsh/video/"$AD" &
-    MPV_PID=$!
-
-    wait "$MPV_PID"
+# Check if video exist
+if [[ -f "$VIDEO_PATH" ]]; then
+    # Chance of ad 1/2
+    if (( RANDOM % 2 == 0 )); then
+        # Block Ctrl+c
+        trap '' SIGINT SIGQUIT
+        # Play ad
+        flatpak run io.mpv.Mpv --vo=tct --vo-tct-256 \
+            --term-status-msg="\n\n\n\nVotre commande sera exécutée bientôt" \
+            --msg-level=cplayer=no --osc=no --keep-open=no \
+            --display-tags=no "$VIDEO_PATH"
+        # Reset Ctrl+c
+        trap - SIGINT SIGQUIT
+    fi
 fi
