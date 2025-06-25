@@ -32,7 +32,7 @@ echo '[4/6] Checking permission...'
 chmod +x "$HOME/.adsh/adsh.sh"
 
 echo '[5/6] Installing mpv...'
-yes | flatpak install flathub io.mpv.Mpv
+flatpak install -y flathub io.mpv.Mpv
 
 echo '[5/6] Adding to zshrc...'
 
