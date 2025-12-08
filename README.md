@@ -214,6 +214,25 @@ Then you can use this command to reset the original mapping.
 ```
 </details>
 
+### 😇 Be Polite
+Your parents didn’t teach you manners? Neither did the terminal! From now on, you must add the magic word `stp` at the end of every command to execute it.
+```bash
+curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/bepolite/install.sh | bash
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Find the line
+```
+# === BePolite start ===
+...
+# === BePolite end ===
+```
+Then delete the content between.
+
+</details>
+
 ## 🔴 Ultra Annoying  
 The final (countdown?) — ultra annoying pranks, like session scripts or resets. Only use these if your friend is really your enemy. 😈
 
