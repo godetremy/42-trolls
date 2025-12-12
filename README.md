@@ -12,7 +12,7 @@ We’ve organized the pranks into four categories:
 ## 🟢 Slightly Annoying
 Simple pranks that are easy to undo (like modifying .zshrc)
 
-### 🔒 Lock your friend's screen  
+### 🔒 Lock your friend's screen
 Lock the screen of the person you’re pranking.
 ```bash
 ft_lock
@@ -26,11 +26,10 @@ echo 'cat /dev/urandom' >> ~/.zshrc
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Use this command :
+Remove the line 'alias cat /dev/urandom' from your ~/.zshrc file to stop the Matrix effect. Or use this command:
 ```bash
-sed -i '' "s/cat \/dev\/urandom//g" ~/.zshrc
+sed -i '/cat /dev/urandom/d' ~/.zshrc
 ```
-Or remove the line at end of the `.zshrc` file.
 </details>
 
 ### 🐱 Tac or Cat ?
@@ -41,11 +40,10 @@ echo 'alias cat="rev"' >> ~/.zshrc
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Use this command :
+Remove the line 'alias cat="rev"' from your ~/.zshrc file to restore the original `cat` command. Or use this command:
 ```bash
-sed -i '' "s/alias cat=\"rev\"//g" ~/.zshrc
+sed -i '/alias cat="rev"/d' ~/.zshrc
 ```
-Or remove the line at end of the `.zshrc` file.
 </details>
 
 ### 📖 Where is the fucking manual ?
@@ -56,24 +54,21 @@ echo 'man() { echo "No manual entry for $1"; }' >> ~/.zshrc
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Use this command :
+Remove the line 'alias man="echo No manual entry for {command}"' from your ~/.zshrc file to restore the original `man` command. Or use this command:
 ```bash
-sed -i '' "s/man() { echo \"No manual entry for $1\"; }//g" ~/.zshrc
+sed -i '/alias man="echo No manual entry for {command}"/d' ~/.zshrc
 ```
-Or remove the line at end of the `.zshrc` file.
 </details>
 
 ### 🥸 Hieroglyph Title Bar
 Replace the font in the title bar of some apps with a symbol font, but with a really big size...
 ```bash
-gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'wasy10 256'
+gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false && gsettings set org.gnome.desktop.wm.preferences titlebar-font 'wasy10 256'
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Use this command :
+Restore the title bar font to the system default with this command:
 ```bash
 gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font true
 ```
@@ -81,13 +76,11 @@ gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font true
 
 ### 🖱️ Cursor Finder
 This command make the cursor at size of 256px.
-
 >[!NOTE]
 > Some cursor are not avaible at a size of 256px. In this case, Gnome will take the larger.
 ```bash
 gsettings set org.gnome.desktop.interface cursor-size 256
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
@@ -102,7 +95,6 @@ Update the buttons of the title bar with 3 close buttons
 ```bash
 gsettings set org.gnome.desktop.wm.preferences button-layout ':close,close,close'
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
@@ -117,7 +109,6 @@ Remove all the buttons of the title bar
 ```bash
 gsettings set org.gnome.desktop.wm.preferences button-layout ':'
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
@@ -127,25 +118,21 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize
 ```
 </details>
 
-
-## 🟡 Moderately Annoying  
-A bit more annoying, but still easy to remove.
+## 🟡 Moderately Annoying
+A step up! These pranks are a bit more troublesome but can be undone with the right know-how 😘
 
 ### 📺 AdSh - Ads in your shell
 Tired of an ad-free terminal? Now you can add ads to pop up when you type commands in your terminal.
-
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/install.sh | bash
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Use this command :
+Remove the line at end of the `.zshrc` file, then delete the folder `.adsh` in your home, or use this command :
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/uninstall.sh | bash
 ```
-Or remove the line at end of the `.zshrc` file, then delete the folder `.adsh` in your home.
 </details>
 
 <details>
@@ -160,19 +147,20 @@ Once you’ve added your video, don’t forget to update the video variable in `
 
 ### 🍎 FallingKey
 A feeling like Isac Newton, when you type letter are falling from the top of your screen.
-
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/fallingkey/run.sh | bash
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
 The easy way is to logout, but if you don't want to do this you can find `ft_keyboard` in the sytem monitor.
+```bash
+pkill -f ft_keyboard
+```
 </details>
 
-## 🟠 Very Annoying  
-Time to take control of hardware capabilities… like sound, graphics, and storage.
+## 🟠 Very Annoying
+Ready for more? These pranks involve taking control of hardware features… like sound, graphics, and storage!
 
 ### 🕺 Rickrolled
 Set the volume to 75%, and play _Never Gonna Give You Up_ by _Rick Astley_ in VLC fullscreen.
@@ -185,7 +173,6 @@ Replace the lock button. Now when you lock, Mario say "Non".
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/install.sh | bash
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
@@ -198,10 +185,7 @@ curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/noloc
 ### 🎲 Random Mouse
 The default configuration of mouse is so boring... Why not randomize all the button of your mouse every 2s ?
 ```bash
-while true; do
-	xmodmap -e "$(echo "pointer = $(shuf -e 1 2 3 | paste -sd " ")")"
-	sleep 2
-done & disown
+while true; do xmodmap -e "pointer = $(shuf -e 1 2 3 | paste -sd ' ')" ; sleep 2; done & disown
 ```
 <details>
   <summary>🧹 How to remove ?</summary>
@@ -210,7 +194,7 @@ The simplest method is to disconnect, but we wish you good luck finding the righ
 
 Then you can use this command to reset the original mapping.
 ```bash
-	xmodmap -e "pointer = 1 2 3"
+xmodmap -e "pointer = 1 2 3"
 ```
 </details>
 
@@ -219,35 +203,26 @@ Your parents didn’t teach you manners? Neither did the terminal! From now on, 
 ```bash
 curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/bepolite/install.sh | bash
 ```
-
 <details>
   <summary>🧹 How to remove ?</summary>
 
-Find the line
-```
+Find these linse in your `~/.zshrc` then delete the content between.
+
+```bash
 # === BePolite start ===
 ...
 # === BePolite end ===
 ```
-Then delete the content between.
-
 </details>
 
-## 🔴 Ultra Annoying  
-The final (countdown?) — ultra annoying pranks, like session scripts or resets. Only use these if your friend is really your enemy. 😈
-
-### 💾 420T
-Because 5GB is too small, experience the 420T session.
-```bash
-echo '/usr/bin/zenity --error --title="bocal" --text="Your home is full! (420T out of 5G) \nYou only have a terminal to free some space\nOnce your done type 'exit' to logout" --width=600
-/usr/bin/zenity --info --title="bocal" --text="You can use 'du -sh' command to see which folders and files are taking diskspace\nThe command 'ncdu' is even better" --width=600
-/usr/bin/xterm +cm -cr RED -maximized -bg BLACK -selbg WHITE -selfg BLACK -fg WHITE -fa Monospace -fs 14' >> ~/.profile
-```
+## 🔴 Ultra Annoying
+The final countdown… Ultra annoying pranks, like session scripts or resets.
 
 ### 🗑️ Files? What files?
 Delete all files in the session — this will reset the session completely.
-> [!CAUTION]
+>[!CAUTION]
 > This action cannot be undone. This is more than just a troll. All files in the session will be deleted. Make sure you have your friend’s permission before using this.
 ```bash
 touch ~/.reset
 ```
+

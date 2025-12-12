@@ -1,0 +1,151 @@
+{
+    "slightly": [
+        {
+            "id": "lock",
+            "name": "🔒 Lock your friend's screen",
+            "description": "Lock the screen of the person you’re pranking.",
+            "entry": "ft_lock"
+        },
+        {
+            "id": "matrix",
+            "name": "🎬 Lowcost Matrix",
+            "description": "Always wanted to be an actor in The Matrix? Create a Matrix effect, but without the budget to hire developers.",
+            "entry": "echo 'cat /dev/urandom' >> ~/.zshrc",
+            "removal": {
+                "description": "Remove the line 'alias cat /dev/urandom' from your ~/.zshrc file to stop the Matrix effect. Or use this command:",
+                "command": "sed -i '/cat \/dev\/urandom/d' ~/.zshrc"
+            }
+        },
+        {
+            "id": "tacorcat",
+            "name": "🐱 Tac or Cat ?",
+            "description": "Replace the `cat` command with `rev`, which prints the file in reverse.",
+            "entry": "echo 'alias cat=\"rev\"' >> ~/.zshrc",
+            "removal": {
+                "description": "Remove the line 'alias cat=\"rev\"' from your ~/.zshrc file to restore the original `cat` command. Or use this command:",
+                "command": "sed -i '/alias cat=\"rev\"/d' ~/.zshrc"
+            }
+        },
+        {
+            "id": "manual",
+            "name": "📖 Where is the fucking manual ?",
+            "description": "Replace the man command with a message saying `No manual entry for {command}`.",
+            "entry": "echo 'man() { echo \"No manual entry for $1\"; }' >> ~/.zshrc",
+            "removal": {
+                "description": "Remove the line 'alias man=\"echo No manual entry for {command}\"' from your ~/.zshrc file to restore the original `man` command. Or use this command:",
+                "command": "sed -i '/alias man=\"echo No manual entry for {command}\"/d' ~/.zshrc"
+            }
+        },
+        {
+            "id": "hieroglyph",
+            "name": "🥸 Hieroglyph Title Bar",
+            "description": "Replace the font in the title bar of some apps with a symbol font, but with a really big size...",
+            "entry": "gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false && gsettings set org.gnome.desktop.wm.preferences titlebar-font 'wasy10 256'",
+            "removal": {
+                "description": "Restore the title bar font to the system default with this command:",
+                "command": "gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font true"
+            }
+        },
+        {
+            "id": "cursor",
+            "name": "🖱️ Cursor Finder",
+            "description": "This command make the cursor at size of 256px.",
+            "note": "Some cursor are not avaible at a size of 256px. In this case, Gnome will take the larger.",
+            "entry": "gsettings set org.gnome.desktop.interface cursor-size 256",
+            "removal": {
+                "description": "Use this command :",
+                "command": "gsettings set org.gnome.desktop.interface cursor-size 24"
+            }
+        },
+        {
+            "id": "xxx",
+            "name": "❌ XXX ?",
+            "description": "Update the buttons of the title bar with 3 close buttons",
+            "entry": "gsettings set org.gnome.desktop.wm.preferences button-layout ':close,close,close'",
+            "removal": {
+                "description": "Use this command :",
+                "command": "gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'"
+            }
+        },
+        {
+            "id": "useless",
+            "name": "🙅 Useless window",
+            "description": "Remove all the buttons of the title bar",
+            "entry": "gsettings set org.gnome.desktop.wm.preferences button-layout ':'",
+            "removal": {
+                "description": "Use this command :",
+                "command": "gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'"
+            }
+        }
+    ],
+    "moderately": [
+        {
+            "id": "adsh",
+            "name": "📺 AdSh - Ads in your shell",
+            "description": "Tired of an ad-free terminal? Now you can add ads to pop up when you type commands in your terminal.",
+            "entry": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/install.sh | bash",
+            "removal": {
+                "description": "Remove the line at end of the `.zshrc` file, then delete the folder `.adsh` in your home, or use this command :",
+                "command": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/uninstall.sh | bash"
+            },
+            "contribute": "You can add your own ads in the `adsh/video` folder, but remember:\n- **Max video size: 2MB:** This will make downloads faster, which is crucial for pranking.\n- **No 4K videos:** High resolution can cause lag in mpv, plus, it’s unnecessary — terminal windows won’t display 1920x1080 resolution anyway.\n\nOnce you’ve added your video, don’t forget to update the video variable in `adsh/install.sh` and `adsh/adsh.sh`"
+        },
+        {
+            "id": "fallingkey",
+            "name": "🍎 FallingKey",
+            "description": "A feeling like Isac Newton, when you type letter are falling from the top of your screen.",
+            "entry": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/fallingkey/run.sh | bash",
+            "removal": {
+                "description": "The easy way is to logout, but if you don't want to do this you can find `ft_keyboard` in the sytem monitor.",
+                "command": "pkill -f ft_keyboard"
+            }
+        }
+    ],
+    "annoying": [
+        {
+            "id": "rickrolled",
+            "name": "🕺 Rickrolled",
+            "description": "Set the volume to 75%, and play _Never Gonna Give You Up_ by _Rick Astley_ in VLC fullscreen.",
+            "entry": "pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 75% && cvlc https://dn720407.ca.archive.org/0/items/rick-roll/Rick%20Roll.ia.mp4 -f --no-video-title-show --mouse-hide-timeout 0"
+        },
+        {
+            "id": "nolock",
+            "name": "🔑 NoLock",
+            "description": "Replace the lock button. Now when you lock, Mario say \"Non\".",
+            "entry": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/install.sh | bash",
+            "removal": {
+                "description": "Use this command :",
+                "command": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/uninstall.sh | bash"
+            }
+        },
+        {
+            "id": "randommouse",
+            "name": "🎲 Random Mouse",
+            "description": "The default configuration of mouse is so boring... Why not randomize all the button of your mouse every 2s ?",
+            "entry": "while true; do xmodmap -e \"pointer = $(shuf -e 1 2 3 | paste -sd ' ')\" ; sleep 2; done & disown",
+            "removal": {
+                "description": "The simplest method is to disconnect, but we wish you good luck finding the right button... 😘\n\nThen you can use this command to reset the original mapping.",
+                "command": "xmodmap -e \"pointer = 1 2 3\""
+            }
+        },
+        {
+            "id": "bepolite",
+            "name": "😇 Be Polite",
+            "description": "Your parents didn’t teach you manners? Neither did the terminal! From now on, you must add the magic word `stp` at the end of every command to execute it.",
+            "entry": "curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/bepolite/install.sh | bash",
+            "removal": {
+                "description": "Find these linse in your `~/.zshrc` then delete the content between.\n",
+                "command": "# === BePolite start ===\n...\n# === BePolite end ==="
+            }
+        }
+    ],
+    "ultra": [
+        {
+            "id": "reset",
+            "name": "🗑️ Files? What files?",
+            "description": "Delete all files in the session — this will reset the session completely.",
+            "caution": "This action cannot be undone. This is more than just a troll. All files in the session will be deleted. Make sure you have your friend’s permission before using this.",
+            "entry": "touch ~/.reset"
+        }
+    ]
+}
