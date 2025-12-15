@@ -80,7 +80,6 @@ mkdir -p "$GUM_TMP_PATH"
 curl -fsSL "$GUM_URL" -o "$GUM_TMP_PATH/gum.tar.gz"
 tar -xzf "$GUM_TMP_PATH/gum.tar.gz" -C "$GUM_TMP_PATH"
 chmod +x "$GUM"
-export PATH="$GUM:$PATH"
 """);
         f.write('\ngum_select_category()\n{\n    echo "$($GUM choose \\\n        --header="Category / "');
         for level in category.keys():
@@ -102,13 +101,13 @@ export PATH="$GUM:$PATH"
             for troll in trolls[level]:
                 f.write(f"launch_troll_{level}_{troll['id']}()")
                 f.write("{\n");
-                f.write(f"    if $GUM confirm \"Are you really sure to install {troll['name']}\"; then\n");
+                f.write(f"    if $GUM confirm \"Are you really sure to install {troll['name']}\" </dev/tty; then\n");
                 f.write(f"        {troll['entry']}\n")
                 f.write("    fi\n")
                 f.write("}\n");
 
         f.write("""
-TROLL=$(select_troll)
+TROLL="$(select_troll </dev/tty)"
 
 """);
         for level in category.keys():
