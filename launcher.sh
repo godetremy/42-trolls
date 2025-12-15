@@ -7,7 +7,7 @@ GUM_PATH=$GUM_TMP_PATH/$GUM_VERSION
 GUM=$GUM_PATH/gum
 
 mkdir -p "$GUM_TMP_PATH"
-curl -fsSL "$GUM_URL" -o "$GUM_TMP_PATH/gum"
+curl -fsSL "$GUM_URL" -o "$GUM_TMP_PATH/gum.tar.gz"
 tar -xzf "$GUM_TMP_PATH/gum.tar.gz" -C "$GUM_TMP_PATH"
 chmod +x "$GUM"
 export PATH="$GUM:$PATH"
