@@ -97,77 +97,77 @@ select_troll() {
 }
 
 launch_troll_slightly_lock(){
-    if gum confirm "Are you really sure to install 🔒 Lock your friend's screen"; then
+    if $GUM confirm "Are you really sure to install 🔒 Lock your friend's screen"; then
         ft_lock
     fi
 }
 launch_troll_slightly_matrix(){
-    if gum confirm "Are you really sure to install 🎬 Lowcost Matrix"; then
+    if $GUM confirm "Are you really sure to install 🎬 Lowcost Matrix"; then
         echo 'cat /dev/urandom' >> ~/.zshrc
     fi
 }
 launch_troll_slightly_tacorcat(){
-    if gum confirm "Are you really sure to install 🐱 Tac or Cat ?"; then
+    if $GUM confirm "Are you really sure to install 🐱 Tac or Cat ?"; then
         echo 'alias cat="rev"' >> ~/.zshrc
     fi
 }
 launch_troll_slightly_manual(){
-    if gum confirm "Are you really sure to install 📖 Where is the fucking manual ?"; then
+    if $GUM confirm "Are you really sure to install 📖 Where is the fucking manual ?"; then
         echo 'man() { echo "No manual entry for $1"; }' >> ~/.zshrc
     fi
 }
 launch_troll_slightly_hieroglyph(){
-    if gum confirm "Are you really sure to install 🥸 Hieroglyph Title Bar"; then
+    if $GUM confirm "Are you really sure to install 🥸 Hieroglyph Title Bar"; then
         gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false && gsettings set org.gnome.desktop.wm.preferences titlebar-font 'wasy10 256'
     fi
 }
 launch_troll_slightly_cursor(){
-    if gum confirm "Are you really sure to install 🖱️ Cursor Finder"; then
+    if $GUM confirm "Are you really sure to install 🖱️ Cursor Finder"; then
         gsettings set org.gnome.desktop.interface cursor-size 256
     fi
 }
 launch_troll_slightly_xxx(){
-    if gum confirm "Are you really sure to install ❌ XXX ?"; then
+    if $GUM confirm "Are you really sure to install ❌ XXX ?"; then
         gsettings set org.gnome.desktop.wm.preferences button-layout ':close,close,close'
     fi
 }
 launch_troll_slightly_useless(){
-    if gum confirm "Are you really sure to install 🙅 Useless window"; then
+    if $GUM confirm "Are you really sure to install 🙅 Useless window"; then
         gsettings set org.gnome.desktop.wm.preferences button-layout ':'
     fi
 }
 launch_troll_moderately_adsh(){
-    if gum confirm "Are you really sure to install 📺 AdSh - Ads in your shell"; then
+    if $GUM confirm "Are you really sure to install 📺 AdSh - Ads in your shell"; then
         curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/adsh/install.sh | bash
     fi
 }
 launch_troll_moderately_fallingkey(){
-    if gum confirm "Are you really sure to install 🍎 FallingKey"; then
+    if $GUM confirm "Are you really sure to install 🍎 FallingKey"; then
         curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/fallingkey/run.sh | bash
     fi
 }
 launch_troll_annoying_rickrolled(){
-    if gum confirm "Are you really sure to install 🕺 Rickrolled"; then
+    if $GUM confirm "Are you really sure to install 🕺 Rickrolled"; then
         pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 75% && cvlc https://dn720407.ca.archive.org/0/items/rick-roll/Rick%20Roll.ia.mp4 -f --no-video-title-show --mouse-hide-timeout 0
     fi
 }
 launch_troll_annoying_nolock(){
-    if gum confirm "Are you really sure to install 🔑 NoLock"; then
+    if $GUM confirm "Are you really sure to install 🔑 NoLock"; then
         curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/nolock/install.sh | bash
     fi
 }
 launch_troll_annoying_randommouse(){
-    if gum confirm "Are you really sure to install 🎲 Random Mouse"; then
+    if $GUM confirm "Are you really sure to install 🎲 Random Mouse"; then
         while true; do xmodmap -e "pointer = $(shuf -e 1 2 3 | paste -sd ' ')" ; sleep 2; done & disown
     fi
 }
 launch_troll_annoying_bepolite(){
-    if gum confirm "Are you really sure to install 😇 Be Polite"; then
+    if $GUM confirm "Are you really sure to install 😇 Be Polite"; then
         curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/bepolite/install.sh | bash
     fi
 }
 launch_troll_ultra_reset(){
-    if gum confirm "Are you really sure to install 🗑️ Files? What files?"; then
+    if $GUM confirm "Are you really sure to install 🗑️ Files? What files?"; then
         touch ~/.reset
     fi
 }

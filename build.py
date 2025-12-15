@@ -102,7 +102,7 @@ export PATH="$GUM:$PATH"
             for troll in trolls[level]:
                 f.write(f"launch_troll_{level}_{troll['id']}()")
                 f.write("{\n");
-                f.write(f"    if gum confirm \"Are you really sure to install {troll['name']}\"; then\n");
+                f.write(f"    if $GUM confirm \"Are you really sure to install {troll['name']}\"; then\n");
                 f.write(f"        {troll['entry']}\n")
                 f.write("    fi\n")
                 f.write("}\n");
