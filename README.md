@@ -218,7 +218,7 @@ Find these linse in your `~/.zshrc` then delete the content between.
 ### 🏗️ Falling Steel
 Every time a command fails, a metal pipe crashes into the terminal !
 ```bash
-echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 20%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
+echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 50%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
 ```
 <details>
   <summary>🧹 How to remove ?</summary>
@@ -226,7 +226,7 @@ echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/met
 Find these linse in your `~/.zshrc` then delete the line.
 
 ```bash
-wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 20%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }
+wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 50%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }
 ```
 </details>
 

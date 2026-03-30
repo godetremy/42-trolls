@@ -168,7 +168,7 @@ launch_troll_annoying_bepolite(){
 }
 launch_troll_annoying_fallingsteel(){
     if $GUM confirm "Are you really sure to install 🏗️ Falling Steel" </dev/tty; then
-        echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 20%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
+        echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 50%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
     fi
 }
 launch_troll_ultra_reset(){
