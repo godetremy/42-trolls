@@ -52,7 +52,8 @@ gum_select_annoying()
         "🕺 Rickrolled" \
         "🔑 NoLock" \
         "🎲 Random Mouse" \
-        "😇 Be Polite"
+        "😇 Be Polite" \
+        "🏗️ Falling Steel"
     )"
 }
 
@@ -165,6 +166,11 @@ launch_troll_annoying_bepolite(){
         curl https://raw.githubusercontent.com/godetremy/42-trolls/refs/heads/main/bepolite/install.sh | bash
     fi
 }
+launch_troll_annoying_fallingsteel(){
+    if $GUM confirm "Are you really sure to install 🏗️ Falling Steel" </dev/tty; then
+        echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 20%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
+    fi
+}
 launch_troll_ultra_reset(){
     if $GUM confirm "Are you really sure to install 🗑️ Files? What files?" </dev/tty; then
         touch ~/.reset
@@ -240,6 +246,11 @@ fi
 
 if [ "$TROLL" = "😇 Be Polite" ]; then
     launch_troll_annoying_bepolite
+    exit
+fi
+
+if [ "$TROLL" = "🏗️ Falling Steel" ]; then
+    launch_troll_annoying_fallingsteel
     exit
 fi
 
