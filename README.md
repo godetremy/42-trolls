@@ -90,6 +90,22 @@ gsettings set org.gnome.desktop.interface cursor-size 24
 ```
 </details>
 
+### 🐮 Cowsay Troll
+After every command, there's a 20% chance a sarcastic cow will comment on your work. Meuuuuh!
+```bash
+curl -s https://raw.githubusercontent.com/godetremy/42-trolls/main/cowsay/install.sh | bash
+```
+
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+Use this command :
+```bash
+curl -s https://raw.githubusercontent.com/godetremy/42-trolls/main/cowsay/uninstall.sh | bash
+```
+Or remove the lines between `# === Cowsay troll start ===` and `# === Cowsay troll end ===` in `.zshrc` and delete `~/.cowsay` folder.
+</details>
+
 ### ❌ XXX ?
 Update the buttons of the title bar with 3 close buttons
 ```bash
