@@ -53,7 +53,8 @@ gum_select_annoying()
         "🔑 NoLock" \
         "🎲 Random Mouse" \
         "😇 Be Polite" \
-        "🏗️ Falling Steel"
+        "🏗️ Falling Steel" \
+        "🔐 You got locked!"
     )"
 }
 
@@ -171,6 +172,11 @@ launch_troll_annoying_fallingsteel(){
         echo 'wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pipe.mp3 -o /dev/null; precmd() { if [[ $? -ne 0 ]]; then pactl set-sink-mute @DEFAULT_SINK@ false && pactl set-sink-volume @DEFAULT_SINK@ 50%; ( ffplay -nodisp -autoexit -loglevel quiet ~/metal_pipe.mp3 >/dev/null 2>&1 & ); fi; }' >> ~/.zshrc
     fi
 }
+launch_troll_annoying_locked(){
+    if $GUM confirm "Are you really sure to install 🔐 You got locked!" </dev/tty; then
+        ((while true; do sleep $((60 + $RANDOM % 60)) && ft_lock; done) & ) &
+    fi
+}
 launch_troll_ultra_reset(){
     if $GUM confirm "Are you really sure to install 🗑️ Files? What files?" </dev/tty; then
         touch ~/.reset
@@ -251,6 +257,11 @@ fi
 
 if [ "$TROLL" = "🏗️ Falling Steel" ]; then
     launch_troll_annoying_fallingsteel
+    exit
+fi
+
+if [ "$TROLL" = "🔐 You got locked!" ]; then
+    launch_troll_annoying_locked
     exit
 fi
 

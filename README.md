@@ -230,6 +230,21 @@ wget https://www.myinstants.com/media/sounds/metal-pipe-clang.mp3 -O ~/metal_pip
 ```
 </details>
 
+### 🔐 You got locked!
+Lock the user every random seconds.
+```bash
+((while true; do sleep $((60 + $RANDOM % 60)) && ft_lock; done) & ) &
+```
+<details>
+  <summary>🧹 How to remove ?</summary>
+
+The easy way is to logout, but if you don't want to do this, find the parent process of sleep using `pstree -p` and kill it using `kill <PID>`.
+```bash
+pstree -p
+kill <PID>
+```
+</details>
+
 ## 🔴 Ultra Annoying
 The final countdown… Ultra annoying pranks, like session scripts or resets.
 
