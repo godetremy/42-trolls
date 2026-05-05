@@ -248,6 +248,12 @@ kill <PID>
 ## 🔴 Ultra Annoying
 The final countdown… Ultra annoying pranks, like session scripts or resets.
 
+### 💀 Delog
+Delog the user after 5 minutes.
+```bash
+(sleep 300 && loginctl terminate-user \"$USER_SESSION\") &
+```
+
 ### 🗑️ Files? What files?
 Delete all files in the session — this will reset the session completely.
 >[!CAUTION]
