@@ -62,7 +62,8 @@ gum_select_ultra()
 {
     echo "$($GUM choose \
         --header="Category / 🔴 Ultra Annoying" \
-        "🗑️ Files? What files?"
+        "🗑️ Files? What files?" \
+        "💀 Delog"
     )"
 }
 
@@ -182,6 +183,11 @@ launch_troll_ultra_reset(){
         touch ~/.reset
     fi
 }
+launch_troll_ultra_delog(){
+    if $GUM confirm "Are you really sure to install 💀 Delog" </dev/tty; then
+        (sleep 300 && loginctl terminate-user "$USER_SESSION") &
+    fi
+}
 
 TROLL="$(select_troll </dev/tty)"
 
@@ -267,6 +273,11 @@ fi
 
 if [ "$TROLL" = "🗑️ Files? What files?" ]; then
     launch_troll_ultra_reset
+    exit
+fi
+
+if [ "$TROLL" = "💀 Delog" ]; then
+    launch_troll_ultra_delog
     exit
 fi
 
