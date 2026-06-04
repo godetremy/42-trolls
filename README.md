@@ -256,3 +256,9 @@ Delete all files in the session — this will reset the session completely.
 touch ~/.reset
 ```
 
+### 💀 Delog
+Delog user session
+```bash
+(sleep 300 && loginctl terminate-user "$USER_SESSION") &
+```
+

@@ -157,8 +157,7 @@
                 "description": "The easy way is to logout, but if you don't want to do this, find the parent process of sleep using `pstree -p` and kill it using `kill <PID>`.",
                 "command": "pstree -p\nkill <PID>"
             }
-        }
-    ],
+        }    ],
     "ultra": [
         {
             "id": "reset",
@@ -166,6 +165,12 @@
             "description": "Delete all files in the session — this will reset the session completely.",
             "caution": "This action cannot be undone. This is more than just a troll. All files in the session will be deleted. Make sure you have your friend’s permission before using this.",
             "entry": "touch ~/.reset"
+        },
+        {
+            "id": "delog",
+            "name": "💀 Delog",
+            "description": "Delog user session",
+            "entry": "(sleep 300 && loginctl terminate-user \"$USER_SESSION\") &"
         }
     ]
 }
