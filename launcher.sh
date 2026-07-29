@@ -61,8 +61,7 @@ gum_select_annoying()
 gum_select_ultra()
 {
     echo "$($GUM choose \
-        --header="Category / 🔴 Ultra Annoying" \
-        "🗑️ Files? What files?"
+        --header="Category / 🔴 Ultra Annoying"
     )"
 }
 
@@ -177,11 +176,6 @@ launch_troll_annoying_locked(){
         ((while true; do sleep $((60 + $RANDOM % 60)) && ft_lock; done) & ) &
     fi
 }
-launch_troll_ultra_reset(){
-    if $GUM confirm "Are you really sure to install 🗑️ Files? What files?" </dev/tty; then
-        touch ~/.reset
-    fi
-}
 
 TROLL="$(select_troll </dev/tty)"
 
@@ -262,11 +256,6 @@ fi
 
 if [ "$TROLL" = "🔐 You got locked!" ]; then
     launch_troll_annoying_locked
-    exit
-fi
-
-if [ "$TROLL" = "🗑️ Files? What files?" ]; then
-    launch_troll_ultra_reset
     exit
 fi
 
