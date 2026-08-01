@@ -7,6 +7,7 @@ VIDEO=(
     "2024_fivestar.mp4"
     "2024_pulco.mp4"
     "2025_sfr.mp4"
+    "1992_couscous.mp4"
 )
 
 # Get random video
